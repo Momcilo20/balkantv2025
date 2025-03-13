@@ -16,7 +16,7 @@ body {
 
 /* Full-Page Sections */
 .section {
-    width: 150vw; /* Change from 300vw to 100vw */
+    width: 100vw; /* Change from 300vw to 100vw */
     height: 100vh; /* Keep height as 100vh */
     display: flex;
     justify-content: center;
