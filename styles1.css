@@ -17,7 +17,7 @@ body {
 /* Full-Page Sections */
 .section {
     width: 100vw; /* Ensure sections fit within the viewport */
-    height: auto; /* Allow height to adjust based on content */
+    height: 120vh; /* Allow height to adjust based on content */
     display: flex;
     justify-content: center;
     align-items: center;
