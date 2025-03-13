@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background: radial-gradient(circle, #222 0%, #111 100%);
-    color: white; /* Ensure all text is white */
+    color: white;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -16,8 +16,8 @@ body {
 
 /* Full-Page Sections */
 .section {
-    width: 100vw; /* Ensure sections fit within the viewport */
-    height: 120vh; /* Allow height to adjust based on content */
+    width: 100vw; /* Change from 300vw to 100vw */
+    height: 100vh; /* Keep height as 100vh */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,10 +75,10 @@ body {
 }
 
 /* Button Under Subtitle */
-#pricing-btn, #to-socials {
+#pricing-btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
+    margin-top: 160px;
+    padding: 10px 20px;
     font-size: 1.2rem;
     color: white;
     background: rgba(255, 255, 255, 0.2);
@@ -145,10 +145,10 @@ body {
 
 
 
-ards */
+/* Cards */
 .card {
     background: linear-gradient(135deg, #000000, #000000);
-    color: white; /* Ensure card text is white */
+    color: white;
     border-radius: 10px;
     padding: 40px;
     box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.2);
@@ -247,7 +247,6 @@ html {
     }
 }
 
-
 /* SOCIALS IKONE */
 .social-icons a {
     display: inline-block;
@@ -266,6 +265,7 @@ html {
 .social-icons a:hover {
     transform: scale(1.2);
 }
+
 .fa-instagram:hover { background: #E4405F; }
 .fa-facebook:hover { background: #1877F2; }
 .fa-tiktok:hover { background: #000000; }
@@ -275,7 +275,7 @@ footer {
     background: black;
     color: white;
     text-align: center;
-    padding: 7px;
+    padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
