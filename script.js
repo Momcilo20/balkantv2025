@@ -43,19 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", revealSections);
     revealSections();
 });
-document.addEventListener("DOMContentLoaded", function() {
-    let pricingSection = document.querySelector(".pricing-content");
-
-    function revealPricing() {
-        let position = pricingSection.getBoundingClientRect().top;
-        if (position < window.innerHeight * 0.8) {
-            pricingSection.classList.add("visible");
-        }
-    }
-
-    window.addEventListener("scroll", revealPricing);
-    revealPricing();
-});
 // Smooth Scroll Effect
 document.querySelectorAll('a.nav-link').forEach(anchor => {
     anchor.addEventListener('click', function(event) {
@@ -63,6 +50,4 @@ document.querySelectorAll('a.nav-link').forEach(anchor => {
         const targetId = this.getAttribute('href').substring(1);
         document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
-});
-
 });
