@@ -1,3 +1,15 @@
+// WhatsApp click for pricing cards
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('#pricing .card').forEach(function(card) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            var message = encodeURIComponent(card.getAttribute('data-message'));
+            var phone = '38766399966'; // WhatsApp number without leading zero
+            var url = `https://wa.me/${phone}?text=${message}`;
+            window.open(url, '_blank');
+        });
+    });
+});
 document.addEventListener("DOMContentLoaded", function() {
     let title = document.getElementById("balkan-title");
     let subtitle = document.getElementById("balkan-subtitle");
@@ -51,4 +63,6 @@ document.querySelectorAll('a.nav-link').forEach(anchor => {
         const targetId = this.getAttribute('href').substring(1);
         document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
+});
+
 });
