@@ -317,8 +317,8 @@ body {
     height: min(75vh, calc(100vh - 120px));
     margin: 0 auto;
 
-    /* unified dark/silverish border to match section */
-    border: 3px solid #121314;      /* thin dark frame */
+    /* bigger, fully black border */
+    border: 10px solid #000;
     border-radius: 14.4px;
     overflow: hidden;
     box-shadow: 0 6.4px 25.6px rgba(45,48,52,0.45);
@@ -334,41 +334,10 @@ body {
     z-index: 2;
 }
 
-/* subtle metallic/top & bottom strips to emphasize the frame */
+/* disable decorative strips so the frame stays uniformly black */
 .promo-video-wrapper::before,
 .promo-video-wrapper::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 10px;
-    pointer-events: none;
-    z-index: 6;
-    background: linear-gradient(90deg,
-        rgba(191,193,198,0.12) 0%,
-        rgba(127,131,137,0.25) 25%,
-        rgba(79,85,90,0.6) 60%,
-        rgba(50,54,58,0.9) 100%);
-}
-
-/* top strip (lighter silver edge) */
-.promo-video-wrapper::before {
-    top: 0;
-    border-top-left-radius: 11px;
-    border-top-right-radius: 11px;
-    mix-blend-mode: overlay;
-}
-
-/* bottom strip (darker silver edge) */
-.promo-video-wrapper::after {
-    bottom: 0;
-    border-bottom-left-radius: 11px;
-    border-bottom-right-radius: 11px;
-    background: linear-gradient(90deg,
-        rgba(50,54,58,0.9) 0%,
-        rgba(79,85,90,0.8) 40%,
-        rgba(191,193,198,0.14) 100%);
-    mix-blend-mode: overlay;
+    display: none;
 }
 
 /* keep video fully visible inside the wrapper */
