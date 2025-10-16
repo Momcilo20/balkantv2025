@@ -257,24 +257,162 @@ body {
     transition: opacity 2s ease-in-out, transform 2s ease-in-out;
     position: relative;
 }
-
-/* Button Under Subtitle */
-#pricing-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: white;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+/* Promo heading at the very top */
+.promo-heading {
+    background: #111;
+    position: relative;
+    z-index: 1050;
+    margin-bottom: 0;
+}
+.promo-heading h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-#pricing-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+/* Make sure navbar is below the promo heading */
+.navbar {
+    margin-top: 0;
+}
+
+/* Promo Video Section - match size and background with other sections */
+.promo-video-section {
+    /* dark/silver at the bottom like section #info (dark -> silver upward) */
+    background: linear-gradient(to top, #232526 0%, #757f9a 55%, #bfc1c6 100%);
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.promo-video-title {
+    margin-top: 18px;
+    margin-bottom: 24px;
+    font-size: 2.3rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    z-index: 2;
+    position: relative;
+    background: linear-gradient(90deg, #fff 0%, #e0e0e0 60%, #f8f8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 12px rgba(220,220,220,0.7));
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+.promo-video-wrapper {
+    width: 100%;
+    max-width: 880px;
+    height: min(75vh, calc(100vh - 120px));
+    margin: 0 auto;
+
+    /* unified dark/silverish border to match section */
+    border: 3px solid #121314;      /* thin dark frame */
+    border-radius: 14.4px;
+    overflow: hidden;
+    box-shadow: 0 6.4px 25.6px rgba(45,48,52,0.45);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+/* subtle metallic/top & bottom strips to emphasize the frame */
+.promo-video-wrapper::before,
+.promo-video-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    pointer-events: none;
+    z-index: 6;
+    background: linear-gradient(90deg,
+        rgba(191,193,198,0.12) 0%,
+        rgba(127,131,137,0.25) 25%,
+        rgba(79,85,90,0.6) 60%,
+        rgba(50,54,58,0.9) 100%);
+}
+
+/* top strip (lighter silver edge) */
+.promo-video-wrapper::before {
+    top: 0;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    mix-blend-mode: overlay;
+}
+
+/* bottom strip (darker silver edge) */
+.promo-video-wrapper::after {
+    bottom: 0;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    background: linear-gradient(90deg,
+        rgba(50,54,58,0.9) 0%,
+        rgba(79,85,90,0.8) 40%,
+        rgba(191,193,198,0.14) 100%);
+    mix-blend-mode: overlay;
+}
+
+/* keep video fully visible inside the wrapper */
+.promo-video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    background: #000;
+    opacity: 1;
+}
+
+/* ensure title is visible too */
+.promo-video-title {
+    opacity: 1;
+    transform: none;
+}
+
+/* Promo Video Controls - Mute/Unmute Button */
+.mute-btn {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    background: rgba(40,40,40,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.mute-btn:hover {
+    background: rgba(80,80,80,0.9);
+}
+.mute-btn .fa-solid {
+    color: #fff;
+    font-size: 1.7rem;
+    pointer-events: none;
 }
 
 /* Pricing Section - Background Image */
@@ -307,7 +445,9 @@ body {
     transform: translateY(0);
 }
 
-/* Button to Socials */
+/* Style for main action buttons to match Društvene mreže button */
+#pricing-btn,
+#info #pricing-btn,
 #to-socials {
     display: inline-block;
     margin-top: 20px;
@@ -319,15 +459,18 @@ body {
     border-radius: 8px;
     backdrop-filter: blur(10px);
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(180,180,180,0.15);
 }
 
+#pricing-btn:hover,
+#info #pricing-btn:hover,
 #to-socials:hover {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.05);
+    color: #232526;
+    border-color: #bfc1c6;
 }
-
-
-
 
 /* Cards */
 .card {
@@ -483,8 +626,10 @@ footer {
     text-align: center;
     padding: 10px;
     position: fixed;
+    left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
+    z-index: 9999;
 }
 
 /* Remove Underline from Buttons */
@@ -492,3 +637,66 @@ a {
     text-decoration: none !important;
 }
 
+/* Add bottom padding to body so content is not hidden behind the footer */
+body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #222 0%, #111 100%);
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    padding-bottom: 48px;
+}
+
+
+.section {
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Keep fade-in only for promo video title and wrapper */
+.promo-video-title,
+.promo-video-wrapper {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+.fade-in-pop {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Mute/Unmute Button Styles */
+.mute-btn {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    background: rgba(40,40,40,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.mute-btn:hover {
+    background: rgba(80,80,80,0.9);
+}
+.mute-btn .fa-solid {
+    color: #fff;
+    font-size: 1.7rem;
+    pointer-events: none;
+}
